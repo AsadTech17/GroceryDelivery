@@ -9,12 +9,33 @@ const Navbar = () => {
     user,
     setUser,
     setShowUserLogin,
-    // navigate,
+    navigate,
     // setSearchQuery,
     // searchQuery,
     // getCartCount,
     // axios,
   } = useAppContext();
+   const logout = async () => {
+    try {
+      // const { data } = await axios.get("/api/user/logout");
+      // if (data.success) {
+      //   toast.success(data.message);
+      //   setUser(null);
+      //   navigate("/");
+      // } else {
+      //   toast.error(data.message);
+      // }
+      setUser(null);
+      navigate("/");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+  // useEffect(() => {
+  //   if (searchQuery.length > 0) {
+  //     navigate("/products");
+  //   }
+  // }, [searchQuery]);
 
   return (
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
@@ -50,8 +71,7 @@ const Navbar = () => {
           <button className="absolute -top-2 -right-3 text-xs text-white bg-[var(--color-primary)] w-[18px] h-[18px] rounded-full">
             {/* {getCartCount()} */}1
           </button>
-        </div>
-
+        </div>   
         {!user ? (
           <button
             onClick={() => setShowUserLogin(true)}
@@ -70,7 +90,7 @@ const Navbar = () => {
                 My Orders
               </li>
               <li
-                // onClick={logout}
+                onClick={logout}
                 className="p-1.5 pl-3 hover:bg-[var(--color-primary)]/10 cursor-pointer"
               >
                 Logout
@@ -136,7 +156,7 @@ const Navbar = () => {
             </button>
           ) : (
             <button
-              //   onClick={logout}
+                onClick={logout}
               className="cursor-pointer px-6 py-2 mt-2 bg-[var(--color-primary)] bg-[var(--color-primary-dull)] transition text-white rounded-full text-sm"
             >
               Logout
