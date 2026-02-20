@@ -49,17 +49,17 @@ export const AppContextProvider = ({ children }) => {
   };
 
   //Remove Product from Cart
-  // const removeFromCart = (itemId) => {
-  //   let cartData = structuredClone(cartItems);
-  //   if (cartData[itemId]) {
-  //     cartData[itemId] -= 1;
-  //     if (cartData[itemId] === 0) {
-  //       delete cartData[itemId];
-  //     }
-  //   }
-  //   toast.success("Removed from Cart");
-  //   setCartItems(cartData);
-  // };
+  const removeFromCart = (itemId) => {
+    let cartData = structuredClone(cartItems);
+    if (cartData[itemId]) {
+      cartData[itemId] -= 1;
+      if (cartData[itemId] === 0) {
+        delete cartData[itemId];
+      }
+    }
+    toast.success("Removed from Cart");
+    setCartItems(cartData);
+  };
   //Get Cart Items Count
   // const getCartCount = () => {
   //   let totalCount = 0;
@@ -101,6 +101,7 @@ export const AppContextProvider = ({ children }) => {
     currency,
     addToCart,
     updateCartItem,
+    removeFromCart,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
