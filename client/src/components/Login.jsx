@@ -10,7 +10,11 @@ const Login = () => {
   const [password, setPassword] = React.useState("");
   const onSubmitHandler = async (event) => {
     try {
-    //   event.preventDefault();
+      event.preventDefault();
+      setUser({
+        email: "aliasad@gmail.com",
+        name: "Asad"
+      })
     //   const { data } = await axios.post(`/api/user/${state}`, {
     //     name,
     //     email,
@@ -19,7 +23,7 @@ const Login = () => {
     //   if (data.success) {
     //     navigate("/");
     //     setUser(data.user);
-    //     setShowUserLogin(false);
+        setShowUserLogin(false);
     //   } else {
     //     toast.error(data.message);
     //   }
