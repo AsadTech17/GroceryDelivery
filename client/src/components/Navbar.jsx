@@ -12,7 +12,7 @@ const Navbar = () => {
     navigate,
     setSearchQuery,
     searchQuery,
-    // getCartCount,
+    getCartCount,
     // axios,
   } = useAppContext();
    const logout = async () => {
@@ -60,7 +60,7 @@ const Navbar = () => {
         </div>
 
         <div
-          //   onClick={() => navigate("/cart")}
+            onClick={() => navigate("/cart")}
           className="relative cursor-pointer"
         >
           <img
@@ -69,7 +69,7 @@ const Navbar = () => {
             className="w-6 opacity-80"
           />
           <button className="absolute -top-2 -right-3 text-xs text-white bg-[var(--color-primary)] w-[18px] h-[18px] rounded-full">
-            {/* {getCartCount()} */}1
+            {getCartCount()}
           </button>
         </div>   
         {!user ? (
@@ -84,7 +84,7 @@ const Navbar = () => {
             <img src={assets.profile_icon} className="w-10" alt="" />
             <ul className="hidden group-hover:block absolute top-10 right-0 bg-white shadow border border-gray-200 py-2.5 w-30 rounded-md text-sm z-40">
               <li
-                // onClick={() => navigate("my-orders")}
+                onClick={() => navigate("my-orders")}
                 className="p-1.5 pl-3 hover:bg-[var(--color-primary)]/10 cursor-pointer"
               >
                 My Orders
@@ -101,7 +101,7 @@ const Navbar = () => {
       </div>
       <div className="flex items-center gap-6 sm:hidden">
         <div
-          //   onClick={() => navigate("/cart")}
+            onClick={() => navigate("/cart")}
           className="relative cursor-pointer"
         >
           <img
@@ -110,7 +110,7 @@ const Navbar = () => {
             className="w-6 opacity-80"
           />
           <button className="absolute -top-2 -right-3 text-xs text-white bg-[var(--color-primary)] w-[18px] h-[18px] rounded-full">
-            {/* {getCartCount()} */}1
+            {getCartCount()}
           </button>
         </div>
         <button
