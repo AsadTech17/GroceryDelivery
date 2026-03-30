@@ -11,22 +11,18 @@ const Login = () => {
   const onSubmitHandler = async (event) => {
     try {
       event.preventDefault();
-      setUser({
-        email: "aliasad@gmail.com",
-        name: "Asad"
-      })
-    //   const { data } = await axios.post(`/api/user/${state}`, {
-    //     name,
-    //     email,
-    //     password,
-    //   });
-    //   if (data.success) {
-    //     navigate("/");
-    //     setUser(data.user);
+      const { data } = await axios.post(`/api/user/${state}`, {
+        name,
+        email,
+        password,
+      });
+      if (data.success) {
+        navigate("/");
+        setUser(data.user);
         setShowUserLogin(false);
-    //   } else {
-    //     toast.error(data.message);
-    //   }
+      } else {
+        toast.error(data.message);
+      }
     } catch (error) {
       toast.error(error.message);
     }
