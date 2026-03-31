@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../context/AppContext";
-import { assets, dummyOrders } from "../assets/assets";
 
 const MyOrders = () => {
   const [MyOrders, setMyOrders] = useState([]);
   const { currency, axios, user } = useAppContext();
   const fetchMyOrders = async () => {
     try {
-        setMyOrders(dummyOrders);
-    //   const { data } = await axios.get("/api/order/user");
-    //   if (data.success) {
-    //     setMyOrders(data.orders);
-    //   }
+      const { data } = await axios.get("/api/order/user");
+      if (data.success) {
+        setMyOrders(data.orders);
+      }
     } catch (error) {
       console.log(error);
     }

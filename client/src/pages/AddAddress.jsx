@@ -61,11 +61,11 @@ const AddAddress = () => {
     }
   };
 
-//   useEffect(() => {
-//     if (!user) {
-//       navigate("/cart");
-//     }
-//   }, []);
+  useEffect(() => {
+    if (!user) {
+      navigate("/cart");
+    }
+  }, []);
 
   return (
     <div className="mt-16 pb-16">
